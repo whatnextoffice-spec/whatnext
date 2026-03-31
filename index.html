@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WhatNext — Build What's Next</title>
+  <meta name="description" content="WhatNext is a forward-thinking software development startup delivering custom web apps, AI tools, training programs, internships, and certifications to empower businesses digitally." />
+  <meta name="keywords" content="WhatNext, software development, web development, AI tools, technical training, internships, certifications, startup" />
+  <meta name="author" content="WhatNext" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="WhatNext — Build What's Next" />
+  <meta property="og:description" content="Custom digital solutions — web apps, AI tools, training & more. Elevate your business with WhatNext." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="Whatnext.jpeg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="WhatNext — Build What's Next" />
+  <meta name="twitter:description" content="Custom digital solutions — web apps, AI tools, training & more." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== PRELOADER ===== -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <img src="Whatnext.jpeg" alt="WhatNext Logo" class="preloader-logo" />
+      <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <img src="Whatnext.jpeg" alt="WhatNext" />
+        <span>WhatNext</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="#why-us" class="nav-link">Why Us</a></li>
+        <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-auth-wrap">
+        <a href="auth.html" class="btn-nav-cta" id="navAuthBtn">Get Started</a>
+        <a href="auth.html" class="nav-account-btn" id="navAccountBtn" style="display:none">
+          <div class="nav-avatar" id="navAvatar">W</div>
+          <span id="navUserName">Account</span>
+        </a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section id="home" class="hero">
+    <canvas id="particleCanvas"></canvas>
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge reveal-up">
+        <i class="fas fa-rocket"></i>
+        <span>Empowering Businesses Digitally</span>
+      </div>
+
+      <h1 class="hero-title reveal-up">
+        Build <span class="gold-gradient">What's</span><br />Next.
+      </h1>
+
+      <p class="hero-sub reveal-up">
+        We are a forward-thinking software startup bridging complex challenges<br class="desktop-br" />
+        with elegant, scalable technology — from powerful web apps to intelligent AI solutions.
+      </p>
+
+      <div class="hero-ctas reveal-up">
+        <a href="#services" class="btn-gold" id="heroGetStarted">
+          <span>Get Started</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="#contact" class="btn-outline-gold" id="heroContactUs">
+          <span>Contact Us</span>
+        </a>
+      </div>
+
+      <div class="hero-stats reveal-up">
+        <div class="stat-item">
+          <span class="stat-num" data-target="150">0</span><span class="stat-plus">+</span>
+          <p>Projects</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="50">0</span><span class="stat-plus">+</span>
+          <p>Clients</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="5">0</span><span class="stat-plus">+</span>
+          <p>Years Exp.</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="98">0</span><span class="stat-plus">%</span>
+          <p>Satisfaction</p>
+        </div>
+      </div>
+    </div>
+
+    <a href="#about" class="scroll-down" aria-label="Scroll down">
+      <i class="fas fa-chevron-down"></i>
+    </a>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section id="about" class="about section-pad">
+    <div class="container">
+      <div class="section-tag reveal-up">About Us</div>
+      <h2 class="section-title reveal-up">We Build <span class="gold-gradient">Digital Futures</span></h2>
+
+      <div class="about-grid">
+        <div class="about-visual reveal-left">
+          <div class="about-img-wrap">
+            <img src="Whatnext.jpeg" alt="WhatNext Team" />
+            <div class="about-badge-float">
+              <i class="fas fa-star"></i>
+              <span>Premium Quality</span>
+            </div>
+          </div>
+          <div class="about-exp-card">
+            <span class="exp-number">5+</span>
+            <span class="exp-text">Years of Innovation</span>
+          </div>
+        </div>
+
+        <div class="about-text reveal-right">
+          <p class="about-desc">
+            We are a <strong>forward-thinking software development startup</strong> dedicated to empowering businesses through custom digital solutions. From robust web applications to intuitive mobile experiences, we bridge the gap between complex challenges and elegant technology.
+          </p>
+          <p class="about-desc">
+            We specialize in <strong>scalable, high-performance software solutions</strong> including web apps, AI tools, and training programs — always focusing on user experience, innovation, and helping businesses grow digitally.
+          </p>
+
+          <div class="about-pillars">
+            <div class="pillar">
+              <div class="pillar-icon"><i class="fas fa-eye"></i></div>
+              <div>
+                <h4>Our Vision</h4>
+                <p>To be the most trusted technology partner for businesses at every scale — local, national, and beyond.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon"><i class="fas fa-bullseye"></i></div>
+              <div>
+                <h4>Our Mission</h4>
+                <p>Deliver innovative, elegant, and high-performance digital products that create real-world impact.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="#contact" class="btn-gold" id="aboutCta">
+            <span>Work With Us</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- ===== FOUNDERS SECTION ===== -->
+      <div class="founders-section">
+        <div class="founders-header reveal-up">
+          <h3 class="section-title text-center">Meet Our <span class="gold-gradient">Founders</span></h3>
+        </div>
+
+        <div class="founders-grid">
+          <!-- Founder 1 -->
+          <div class="founder-card reveal-up" style="--delay:0s">
+            <div class="founder-img-wrap">
+              <img src="Praveen Karthik R .jpeg" alt="Praveen Karthik R" />
+            </div>
+            <div class="founder-info">
+              <h4>Praveen Karthik R</h4>
+              <span class="founder-role">CEO</span>
+              <span class="founder-edu">B.Tech AI & DS - II Year</span>
+              <span class="founder-edu">Tagore Engineering College</span>
+              <p>Vision-driven leader focused on scaling innovative digital solutions and building high-performing teams.</p>
+              <div class="founder-social">
+                <a href="https://www.linkedin.com/in/praveen-karthik-r-963588372" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+            <div class="card-glow"></div>
+          </div>
+
+          <!-- Founder 2 -->
+          <div class="founder-card reveal-up" style="--delay:0.1s">
+            <div class="founder-img-wrap">
+              <img src="Madhan S .jpeg" alt="Madhan S" />
+            </div>
+            <div class="founder-info">
+              <h4>Madhan S</h4>
+              <span class="founder-role">Founder</span>
+              <span class="founder-edu">B.Tech AI & DS - II Year</span>
+              <span class="founder-edu">Tagore Engineering College</span>
+              <p>Product-focused developer specializing in building scalable systems and efficient digital solutions.</p>
+              <div class="founder-social">
+                <a href="https://www.linkedin.com/in/madhan-s-499828335" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+            <div class="card-glow"></div>
+          </div>
+
+          <!-- Founder 3 -->
+          <div class="founder-card reveal-up" style="--delay:0.2s">
+            <div class="founder-img-wrap">
+              <img src="Saranya Sri Valli D .jpeg" alt="Saranya Sri Valli D" />
+            </div>
+            <div class="founder-info">
+              <h4>Saranya Sri Valli D</h4>
+              <span class="founder-role">Co-Founder</span>
+              <span class="founder-edu">B.Tech AI & DS - II Year</span>
+              <span class="founder-edu">Tagore Engineering College</span>
+              <p>Creative strategist focused on delivering intuitive designs and exceptional user experiences.</p>
+              <div class="founder-social">
+                <a href="https://www.linkedin.com/in/saranya-sri-valli-b90a47372" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+            <div class="card-glow"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== SERVICES SECTION ===== -->
+  <section id="services" class="services section-pad dark-section">
+    <div class="services-bg-glow"></div>
+    <div class="container">
+      <div class="section-tag reveal-up">What We Offer</div>
+      <h2 class="section-title reveal-up">Our <span class="gold-gradient">Services</span></h2>
+      <p class="section-sub reveal-up">Comprehensive digital solutions tailored to empower your business at every stage.</p>
+
+      <div class="services-grid">
+
+        <div class="service-card reveal-up" style="--delay:0s">
+          <div class="service-icon-wrap">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Web Development</h3>
+          <p>We design and build blazing-fast, responsive web applications using cutting-edge technologies. From landing pages to complex enterprise platforms — we deliver pixel-perfect results.</p>
+          <ul class="service-tags">
+            <li>React / Next.js</li>
+            <li>Node.js</li>
+            <li>Custom CMS</li>
+          </ul>
+          <div class="card-glow"></div>
+        </div>
+
+        <div class="service-card reveal-up" style="--delay:0.1s">
+          <div class="service-icon-wrap">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3>AI Tools</h3>
+          <p>Harness the power of Artificial Intelligence with our custom AI tools — from intelligent chatbots to automation solutions that streamline your business processes and decision-making.</p>
+          <ul class="service-tags">
+            <li>Chatbots</li>
+            <li>Automation</li>
+            <li>ML Models</li>
+          </ul>
+          <div class="card-glow"></div>
+        </div>
+
+        <div class="service-card reveal-up" style="--delay:0.2s">
+          <div class="service-icon-wrap">
+            <i class="fas fa-chalkboard-teacher"></i>
+          </div>
+          <h3>Technical Training</h3>
+          <p>Upskill your team or yourself with our industry-relevant technical training programs. We offer hands-on workshops, live sessions, and expert mentorship in today's most in-demand tech skills.</p>
+          <ul class="service-tags">
+            <li>Python</li>
+            <li>Web Dev</li>
+            <li>AI & ML</li>
+          </ul>
+          <div class="card-glow"></div>
+        </div>
+
+        <div class="service-card reveal-up" style="--delay:0.3s">
+          <div class="service-icon-wrap">
+            <i class="fas fa-user-graduate"></i>
+          </div>
+          <h3>Student Internships</h3>
+          <p>Kickstart your tech career with a real-world internship at WhatNext. Students gain hands-on experience building live projects under the mentorship of seasoned professionals.</p>
+          <ul class="service-tags">
+            <li>Live Projects</li>
+            <li>Mentorship</li>
+            <li>Certificate</li>
+          </ul>
+          <div class="card-glow"></div>
+        </div>
+
+        <div class="service-card reveal-up" style="--delay:0.4s">
+          <div class="service-icon-wrap">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <h3>Certification Programs</h3>
+          <p>Earn industry-recognized certifications that validate your skills and boost your career profile. Our structured programs are designed with industry standards to make you stand out.</p>
+          <ul class="service-tags">
+            <li>Recognized</li>
+            <li>Structured</li>
+            <li>Career-Ready</li>
+          </ul>
+          <div class="card-glow"></div>
+        </div>
+
+        <div class="service-card service-card-cta reveal-up" style="--delay:0.5s">
+          <i class="fas fa-sparkles service-cta-icon"></i>
+          <h3>Ready to get started?</h3>
+          <p>Let's discuss your project and find the perfect solution tailored to your needs.</p>
+          <a href="#contact" class="btn-gold" id="servicesCta">
+            <span>Talk to Us</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PORTFOLIO SECTION ===== -->
+  <section id="portfolio" class="portfolio section-pad">
+    <div class="container">
+      <div class="section-tag reveal-up">Our Work</div>
+      <h2 class="section-title reveal-up">Featured <span class="gold-gradient">Projects</span></h2>
+      <p class="section-sub reveal-up">A curated showcase of solutions we've built that drive results.</p>
+
+      <div class="portfolio-filter reveal-up">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="ai">AI</button>
+        <button class="filter-btn" data-filter="training">Training</button>
+      </div>
+
+      <div class="portfolio-grid">
+
+        <div class="portfolio-item reveal-up" data-category="web">
+          <div class="portfolio-img">
+            <div class="portfolio-placeholder p1">
+              <i class="fas fa-globe"></i>
+            </div>
+            <div class="portfolio-overlay">
+              <div class="portfolio-overlay-content">
+                <span class="port-tag">Web Development</span>
+                <h3>E-Commerce Platform</h3>
+                <p>Full-stack multi-vendor marketplace with real-time inventory and payment integration.</p>
+                <div class="port-links">
+                  <a href="#contact" class="port-btn" aria-label="View project"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="port-category">Web App</span>
+            <h3>E-Commerce Platform</h3>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal-up" data-category="ai">
+          <div class="portfolio-img">
+            <div class="portfolio-placeholder p2">
+              <i class="fas fa-brain"></i>
+            </div>
+            <div class="portfolio-overlay">
+              <div class="portfolio-overlay-content">
+                <span class="port-tag">AI Tools</span>
+                <h3>AI Customer Support Bot</h3>
+                <p>Intelligent chatbot reducing support tickets by 70% through automated query resolution.</p>
+                <div class="port-links">
+                  <a href="#contact" class="port-btn" aria-label="View project"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="port-category">AI Tool</span>
+            <h3>AI Support Chatbot</h3>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal-up" data-category="web">
+          <div class="portfolio-img">
+            <div class="portfolio-placeholder p3">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="portfolio-overlay">
+              <div class="portfolio-overlay-content">
+                <span class="port-tag">Web Development</span>
+                <h3>SaaS Dashboard</h3>
+                <p>Analytics dashboard with real-time data visualization and role-based access control.</p>
+                <div class="port-links">
+                  <a href="#contact" class="port-btn" aria-label="View project"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="port-category">SaaS</span>
+            <h3>Analytics Dashboard</h3>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal-up" data-category="training">
+          <div class="portfolio-img">
+            <div class="portfolio-placeholder p4">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="portfolio-overlay">
+              <div class="portfolio-overlay-content">
+                <span class="port-tag">Technical Training</span>
+                <h3>College AI Workshop</h3>
+                <p>3-day intensive AI & ML bootcamp delivered to 300+ engineering students across 5 colleges.</p>
+                <div class="port-links">
+                  <a href="#contact" class="port-btn" aria-label="View project"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="port-category">Training</span>
+            <h3>AI College Workshop</h3>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal-up" data-category="ai">
+          <div class="portfolio-img">
+            <div class="portfolio-placeholder p5">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="portfolio-overlay">
+              <div class="portfolio-overlay-content">
+                <span class="port-tag">AI Tools</span>
+                <h3>Sales Prediction Engine</h3>
+                <p>ML-based revenue forecasting tool that improved planning accuracy by 60% for retail clients.</p>
+                <div class="port-links">
+                  <a href="#contact" class="port-btn" aria-label="View project"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="port-category">AI</span>
+            <h3>Sales Prediction Engine</h3>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal-up" data-category="web">
+          <div class="portfolio-img">
+            <div class="portfolio-placeholder p6">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <div class="portfolio-overlay">
+              <div class="portfolio-overlay-content">
+                <span class="port-tag">Web Development</span>
+                <h3>Healthcare Portal</h3>
+                <p>Patient management system with appointment scheduling and telemedicine integration.</p>
+                <div class="port-links">
+                  <a href="#contact" class="port-btn" aria-label="View project"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="port-category">Web App</span>
+            <h3>Healthcare Portal</h3>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY CHOOSE US ===== -->
+  <section id="why-us" class="why-us section-pad dark-section">
+    <div class="why-bg-glow"></div>
+    <div class="container">
+      <div class="section-tag reveal-up">Why WhatNext</div>
+      <h2 class="section-title reveal-up">Why Businesses <span class="gold-gradient">Choose Us</span></h2>
+      <p class="section-sub reveal-up">We don't just build software — we build lasting partnerships.</p>
+
+      <div class="why-grid">
+
+        <div class="why-card reveal-up" style="--delay:0s">
+          <div class="why-icon"><i class="fas fa-lightbulb"></i></div>
+          <h3>Innovation First</h3>
+          <p>We constantly explore cutting-edge technologies to deliver future-proof solutions that keep you ahead of the curve.</p>
+        </div>
+
+        <div class="why-card reveal-up" style="--delay:0.1s">
+          <div class="why-icon"><i class="fas fa-bolt"></i></div>
+          <h3>Fast Delivery</h3>
+          <p>Our agile development process ensures quick turnarounds without compromising on quality or attention to detail.</p>
+        </div>
+
+        <div class="why-card reveal-up" style="--delay:0.2s">
+          <div class="why-icon"><i class="fas fa-gem"></i></div>
+          <h3>Premium Quality</h3>
+          <p>Every line of code, every design decision is crafted with precision. We hold ourselves to the highest professional standards.</p>
+        </div>
+
+        <div class="why-card reveal-up" style="--delay:0.3s">
+          <div class="why-icon"><i class="fas fa-rocket"></i></div>
+          <h3>Startup Mindset</h3>
+          <p>We bring startup energy to every project — hungry, nimble, and obsessed with results. Your success is our success.</p>
+        </div>
+
+        <div class="why-card reveal-up" style="--delay:0.4s">
+          <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>Reliable Support</h3>
+          <p>Dedicated post-launch support ensures your product continues to perform and evolve as your business grows.</p>
+        </div>
+
+        <div class="why-card reveal-up" style="--delay:0.5s">
+          <div class="why-icon"><i class="fas fa-users"></i></div>
+          <h3>Client-Centric</h3>
+          <p>We listen deeply, communicate clearly, and treat every client as a long-term partner — not just a project.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section id="testimonials" class="testimonials section-pad">
+    <div class="container">
+      <div class="section-tag reveal-up">What They Say</div>
+      <h2 class="section-title reveal-up">Client <span class="gold-gradient">Testimonials</span></h2>
+      <p class="section-sub reveal-up">Real words from real clients who chose to build with WhatNext.</p>
+
+      <div class="testimonial-slider">
+        <div class="testimonial-track" id="testimonialTrack">
+
+          <div class="testimonial-card">
+            <div class="testi-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testi-text">"WhatNext transformed our outdated website into a stunning, high-performing platform. Our lead generation increased by 3x within the first month. Absolutely outstanding work!"</p>
+            <div class="testi-author">
+              <div class="testi-avatar">R</div>
+              <div>
+                <h4>Rajesh Murugan</h4>
+                <span>CEO, TechVista Pvt. Ltd.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testi-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testi-text">"The AI chatbot they built for us cut our customer support time in half. The team was professional, quick, and incredibly knowledgeable. I'd recommend WhatNext to any startup."</p>
+            <div class="testi-author">
+              <div class="testi-avatar">P</div>
+              <div>
+                <h4>Priya Sharma</h4>
+                <span>Founder, ShopEase</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testi-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testi-text">"We enrolled 200 students in WhatNext's technical training program. The quality of instruction and the practical approach was exceptional. Our students got placed immediately after!"</p>
+            <div class="testi-author">
+              <div class="testi-avatar">K</div>
+              <div>
+                <h4>Dr. Karthik Rajan</h4>
+                <span>HOD, Sri Venkateswara Engineering College</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testi-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testi-text">"From concept to deployment in just 3 weeks. WhatNext's team delivered a beautiful SaaS product that exceeded all our expectations. The post-launch support has been fantastic too!"</p>
+            <div class="testi-author">
+              <div class="testi-avatar">A</div>
+              <div>
+                <h4>Ananya Krishnan</h4>
+                <span>Product Manager, GrowthHub</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="testi-controls">
+          <button class="testi-btn" id="testiPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+          <div class="testi-dots" id="testiDots"></div>
+          <button class="testi-btn" id="testiNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section id="contact" class="contact section-pad dark-section">
+    <div class="contact-bg-glow"></div>
+    <div class="container">
+      <div class="section-tag reveal-up">Get In Touch</div>
+      <h2 class="section-title reveal-up">Let's <span class="gold-gradient">Build Together</span></h2>
+      <p class="section-sub reveal-up">Have a project in mind? We'd love to hear from you. Let's create something extraordinary.</p>
+
+      <div class="contact-grid">
+
+        <div class="contact-info reveal-left">
+          <h3>Contact Information</h3>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <span>Email Us</span>
+              <a href="mailto:whatnext.offic@gmail.com">whatnext.offic@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <span>Call / WhatsApp</span>
+              <a href="tel:+919751433247">+91 97514 33247</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fab fa-instagram"></i></div>
+            <div>
+              <span>Instagram</span>
+              <a href="https://www.instagram.com/what_next.official?igsh=MTB1cGM0amJocXY5cA==" target="_blank" rel="noopener noreferrer">@whatnext</a>
+            </div>
+          </div>
+
+          <a href="https://wa.me/919751433247?text=Hi%20WhatNext!%20I'm%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer" class="btn-whatsapp" id="contactWhatsApp">
+            <i class="fab fa-whatsapp"></i>
+            <span>Chat on WhatsApp</span>
+          </a>
+
+          <div class="contact-tagline">
+            <i class="fas fa-clock"></i>
+            <span>Usually responds within 2 hours</span>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap reveal-right">
+          <form id="contactForm" class="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone / WhatsApp</label>
+              <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" />
+            </div>
+            <div class="form-group">
+              <label for="service">Service Interested In</label>
+              <select id="service" name="service">
+                <option value="">Select a service...</option>
+                <option value="web">Web Development</option>
+                <option value="ai">AI Tools</option>
+                <option value="training">Technical Training</option>
+                <option value="internship">Student Internship</option>
+                <option value="certification">Certification Program</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell us about your project or requirement..." required></textarea>
+            </div>
+            <button type="submit" class="btn-gold btn-full" id="submitBtn">
+              <span>Send Message</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <i class="fas fa-check-circle"></i>
+            <h3>Message Sent!</h3>
+            <p>Thank you for reaching out. We'll get back to you within 2 hours.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+
+          <div class="footer-brand">
+            <a href="#home" class="footer-logo">
+              <img src="Whatnext.jpeg" alt="WhatNext" />
+              <span>WhatNext</span>
+            </a>
+            <p>Empowering businesses through innovative digital solutions. Build what's next — with us.</p>
+            <div class="footer-social">
+              <a href="https://www.instagram.com/what_next.official?igsh=MTB1cGM0amJocXY5cA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="https://wa.me/919751433247" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+              <a href="mailto:whatnext.offic@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-links-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links-col">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#services">Web Development</a></li>
+              <li><a href="#services">AI Tools</a></li>
+              <li><a href="#services">Technical Training</a></li>
+              <li><a href="#services">Internships</a></li>
+              <li><a href="#services">Certifications</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-contact-col">
+            <h4>Contact</h4>
+            <p><i class="fas fa-envelope"></i> whatnext.offic@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +91 97514 33247</p>
+            <a href="#contact" class="btn-gold btn-sm" id="footerCta">Start a Project</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 WhatNext. All rights reserved. | Built with <i class="fas fa-heart gold"></i> by WhatNext Team</p>
+        <p class="footer-sub">Empowering businesses — one line of code at a time.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== WHATSAPP FLOATING BUTTON ===== -->
+  <a href="https://wa.me/919751433247?text=Hi%20WhatNext!%20I'm%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer" class="whatsapp-float" id="whatsappFloat" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="wa-tooltip">Chat with us!</span>
+  </a>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- Main JS -->
+  <script src="script.js"></script>
+</body>
+</html>
